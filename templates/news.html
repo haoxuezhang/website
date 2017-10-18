@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% block title %}<title>新闻动态</title>{% endblock %}
+{% block content %}
+<div class="toppic">
+    <div class="am-container-1">
+        <div class="toppic-title left">
+            <i class="am-icon-newspaper-o toppic-title-i"></i>
+            <span class="toppic-title-span">新闻动态</span>
+            <p>Hengwang News</p>
+        </div>
+        <div class="right toppic-progress">
+            <span><a href="/" class="w-white">首页</a></span>
+            <i class=" am-icon-arrow-circle-right w-white"></i>
+            <span><a href="" class="w-white">新闻动态</a></span>
+        </div>
+    </div>
+</div>
+
+
+<div class="am-container-1 news-content-all">
+    <div class="left am-u-sm-12 am-u-md-8 am-u-lg-9 ">
+        <ul class="news-ul">
+
+            {% for article in article_list.object_list %}
+            <li class="am-u-sm-12 am-u-md-6 am-u-lg-4 ">
+                <a href="/news/{{article.newsCate_id}}/{{article.id}}">
+                    <div class="news-ul-liall">
+                        <img class="news-ul-liimg" src="{{MEDIA_URL}}/{{article.image}}"/>
+                        <div class="inform-list">
+                            <div class="inform-list-date"><i class="am-icon-arrow-circle-right"></i>{{article.pub_date}}</div>
+                            <div class="inform-list-label"><i class="am-icon-arrow-circle-right"></i>{{article.tag}}</div>
+                            <div class="inform-list-numb"><i class="am-icon-arrow-circle-right"></i>点击次数：{{article.click_count}}</div>
+                        </div>
+                        <span>{{article.title}}</span>
+                        <p>{{article.describe}}</p>
+                        <a href="/news/{{article.newsCate_id}}/{{article.id}}"><span class="see-more3">查看更多<i class="am-icon-angle-double-right"></i></span></a>
+                    </div>
+                </a>
+            </li>
+            {% endfor %}
+
+            <div class="clear"></div>
+        </ul>
+
+        <ul class="am-pagination ">
+            {% if article_list.has_previous %}
+            <!--<li><a href="#">&laquo;</a></li>-->
+            <li><a href="?{{ article_list.previous_page_number.querystring }}">上一页</a></li>
+            {% endif %}
+            {% for page in article_list.pages %}
+            {% if page %}
+            {% ifequal page article_list.number %}
+            <li class="current-page"><a href="?{{ page.querystring }}">{{page}}</a></li>
+            {% else %}
+            <li class="page"><a href="?{{ page.querystring }}">{{page}}</a></li>
+            {% endifequal %}
+            {% else %}
+            ...
+            {% endif %}
+            {% endfor %}
+            {% if article_list.has_next %}
+            <li><a href="?{{ article_list.next_page_number.querystring }}">下一页</a></li>
+            {% endif %}
+        </ul>
+
+
+    </div>
+
+    <div class="left am-u-sm-12 am-u-md-4 am-u-lg-3">
+
+        <section data-am-widget="accordion" class="am-accordion am-accordion-gapped" data-am-accordion='{  }'>
+            <div class="hot-title"><i class="am-icon-thumbs-o-up"></i>热门新闻 / Hot News</div>
+            {% for hot_news in hot_news_list %}
+            <dl class="am-accordion-item">
+                <dt class="am-accordion-title">
+                    {{hot_news.title}}
+                </dt>
+                <dd class="am-accordion-bd am-collapse ">
+                    <div class="am-accordion-content">
+                        <a href="/news/{{hot_news.newsCate_id}}/{{hot_news.id}}">{{hot_news.describe}}</a>
+                    </div>
+                </dd>
+            </dl>
+            {% endfor %}
+
+        </section>
+
+    </div>
+
+    <div class="clear"></div>
+</div>
+{% endblock %}
+
+

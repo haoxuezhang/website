@@ -1,0 +1,65 @@
+{%extends 'base.html' %}
+{% block title %}<title>产品展示</title>{% endblock %}
+{% block content %}
+<div class="toppic">
+    <div class="am-container-1">
+        <div class="toppic-title left">
+            <i class="am-icon-dropbox toppic-title-i"></i>
+            <span class="toppic-title-span">产品展示</span>
+            <p>Product Show</p>
+        </div>
+        <div class="right toppic-progress">
+            <span><a href="/" class="w-white">首页</a></span>
+            <i class=" am-icon-arrow-circle-right w-white"></i>
+            <span><a href="" class="w-white">产品展示</a></span>
+        </div>
+    </div>
+</div>
+
+<div class="am-container-1">
+    <ul data-am-widget="gallery" class="am-gallery am-avg-sm-1
+  am-avg-md-3 am-avg-lg-4 am-gallery-bordered customer-case-ul" data-am-gallery="{  }">
+        {% for article in article_list.object_list %}
+        <li>
+            <div class="am-gallery-item">
+                <a href="{{article.id}}" class="">
+                    <div class="customer-case-img">
+                        <img src="{{MEDIA_URL}}/{{article.image}}"/>
+                    </div>
+                    <h3 class="am-gallery-title">{{article.title}}</h3>
+                    <div class="am-gallery-desc gallery-words">
+                        {{article.describe}}
+                    </div>
+                </a>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+
+</div>
+
+<ul class="am-pagination ">
+    {% if article_list.has_previous %}
+    <!--<li><a href="#">&laquo;</a></li>-->
+    <li><a href="?{{ article_list.previous_page_number.querystring }}">上一页</a></li>
+    {% endif %}
+    {% for page in article_list.pages %}
+    {% if page %}
+    {% ifequal page article_list.number %}
+    <li class="current-page"><a href="?{{ page.querystring }}">{{page}}</a></li>
+    {% else %}
+    <li class="page"><a href="?{{ page.querystring }}">{{page}}</a></li>
+    {% endifequal %}
+    {% else %}
+    ...
+    {% endif %}
+    {% endfor %}
+    {% if article_list.has_next %}
+    <li><a href="?{{ article_list.next_page_number.querystring }}">下一页</a></li>
+    {% endif %}
+</ul>
+
+
+</div>
+
+{% endblock %}

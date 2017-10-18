@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% block title %}<title>关于我们</title>{% endblock %}
+{% block content %}
+
+<div class="toppic">
+    <div class="am-container-1">
+        <div class="toppic-title left">
+            <i class="am-icon-paper-plane toppic-title-i"></i>
+            <span class="toppic-title-span">关于我们</span>
+            <p>About Us</p>
+        </div>
+        <div class="right toppic-progress">
+            <span><a href="/" class="w-white">首页</a></span>
+            <i class=" am-icon-arrow-circle-right w-white"></i>
+            <span><a href="/{{aboutus.category_id}}" class="w-white">关于我们</a></span>
+        </div>
+    </div>
+</div>
+
+<div class=" am-container-1">
+    <div class="part-title part-title-mar">
+        <a href="#">
+            <i class=" am-icon-paper-plane part-title-i"></i>
+            <span class="part-title-span">关于我们</span>
+            <p>About Us</p>
+        </a>
+    </div>
+    <div class="company-intro">
+        <p>{{aboutus.context| safe}}</p>
+    </div>
+</div>
+<div class="gray-li company-thought-all">
+    <div class=" am-container-1">
+        <ul class="company-thought">
+            <li>
+                <div class="thought-all">
+                    <i class="am-icon-circle-o-notch"></i>
+                    <span>企业理念</span>
+                    <div class="thought-all-none">
+                        <h5>专注 专业</h5>
+                    </div>
+                </div>
+
+            </li>
+            <li>
+                <div class="thought-all">
+                    <i class="am-icon-hand-o-right"></i>
+                    <span>服务理念</span>
+                    <div class="thought-all-none">
+                        <h5>实务 用心</h5>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="thought-all">
+                    <i class="am-icon-bar-chart"></i>
+                    <span>发展方向</span>
+                    <div class="thought-all-none">
+                        <h5>精益求精</h5>
+                    </div>
+                </div>
+            </li>
+            <div class="clear"></div>
+        </ul>
+    </div>
+</div>
+
+
+
+</div>
+<div class=" am-container-1">
+    <div class="part-title part-title-mar">
+        <a >
+            <i class=" am-icon-comments-o part-title-i"></i>
+            <span class="part-title-span">联系我们</span>
+            <p>Contact Us</p>
+        </a>
+    </div>
+</div>
+<div class="gray-li">
+    <div class=" am-container-1">
+        <div class="contact-us">
+            <div class="am-u-lg-6 am-u-md-6 am-u-sm-12">
+                <img src="{{MEDIA_URL}}/{{aboutus.image}}"/>
+            </div>
+            <div class="am-u-lg-6 am-u-md-6 am-u-sm-12">
+                <ul class="contact-add">
+                    <li>
+                        <div><i class=" am-icon-map-marker"></i><span class="contact-add-1">{{aboutus.address}}</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div><i class=" am-icon-phone"></i><span>{{aboutus.tel}}</span></div>
+                    </li>
+                    <li>
+                        <div><i class=" am-icon-mobile mobile"></i><span>{{aboutus.phone}}</span></div>
+                    </li>
+                    <li>
+                        <div><i class=" am-icon-envelope-o"></i><span>{{aboutus.email}}</span></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

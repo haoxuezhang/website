@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+{% block title %}<title>首页</title>{% endblock %}
+{% block content %}
+<div class="rollpic">
+    <div data-am-widget="slider" class="am-slider am-slider-default" data-am-slider='{}'>
+        <ul class="am-slides">
+            {% for important_pic in important_list %}
+            <li>
+                <img src="{{MEDIA_URL}}/{{important_pic.image}}"/></li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+<div class="am-container-1">
+    <div class="solutions part-all">
+        <div class="part-title">
+            <a >
+                <i class="am-icon-lightbulb-o part-title-i"></i>
+                <span class="part-title-span">解决方案</span>
+                <p>Solutions</p>
+            </a>
+        </div>
+        <ul class="am-g part-content solutions-content">
+            {% for solution in solution_list %}
+            <a href="/solutions/{{solution.solutionCate_id}}/{{solution.id}}">
+                <li class="am-u-sm-6 am-u-md-3 am-u-lg-3">
+                    <i class="am-icon-safari solution-circle"></i>
+                    <span class="solutions-title">{{solution.title}}</span>
+                    <p class="solutions-way">{{solution.describe}}</p></li>
+            </a>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+<div class="gray-li">
+    <div class="customer-case part-all ">
+        <div class="part-title">
+            <a >
+                <i class=" am-icon-briefcase part-title-i"></i>
+                <span class="part-title-span">产品展示</span>
+                <p>Customer Case</p>
+            </a>
+        </div>
+        <ul data-am-widget="gallery" class=" am-avg-sm-1
+        am-avg-md-4 am-avg-lg-4 am-gallery-bordered customer-case-content">
+            {% for product in product_list %}
+            <li class="case-li am-u-sm-6 am-u-md-6 am-u-lg-3">
+                <div class="am-gallery-item case-img1">
+                    <a href="#">
+                        <img src="{{MEDIA_URL}}/{{product.image}}"/></a>
+                </div>
+                <div class="case-li-mengban">
+                    <div class=" case-word">
+                        <h3 class="am-gallery-title">{{product.title}}</h3>
+                        <p>{{product.pub_date}}</p>
+                        <a href="/products/{{product.productCate_id}}/{{product.id}}">
+                  <span>
+                    <i class="am-icon-eye"></i>查看更多</span>
+                        </a>
+                    </div>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        <div class="lan-bott">
+            <div class="left">
+                <span>全方位解决方案,为您轻松解决不同问题</span>
+                <p>A full range of solutions for you to solve different problems</p>
+            </div>
+            <div class="right">
+                <a >
+              <span class="see-more">查看更多
+                <i class="am-icon-angle-double-right"></i></span>
+                </a>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="part-title"></div>
+    </div>
+</div>
+<div class=" news-all">
+    <div class="am-container-1">
+        <div class="news part-all">
+            <div class="part-title">
+                <a >
+                    <i class="am-icon-newspaper-o part-title-i"></i>
+                    <span class="part-title-span">新闻动态</span>
+                    <p>Hengwang News</p>
+                </a>
+            </div>
+            <div class="news-content ">
+                <ul class="news-content-ul">
+                    {% for news in news_list %}
+                    <li class="am-u-sm-12 am-u-md-6 am-u-lg-6">
+                        <a href="/news/{{news.newsCate_id}}/{{news.id}}">
+                            <div class=" am-u-sm-12 am-u-md-12 am-u-lg-5">
+                                <div class="news-img">
+                                    <img src="{{MEDIA_URL}}/{{news.image}}"></img>
+                                </div>
+                            </div>
+                            <div class=" am-u-sm-12 am-u-md-12 am-u-lg-7">
+                                <span class="news-right-title">{{news.title}}</span>
+                                <p class="news-right-time">{{news.pub_date}}</p>
+                                <p class="news-right-words">{{news.describe}}...</p>
+                                <a href="/news/{{news.newsCate_id}}/{{news.id}}">
+                      <span class="see-more2">查看更多
+                        <i class="am-icon-angle-double-right"></i></span>
+                                </a>
+                            </div>
+                            <div class="clear"></div>
+                        </a>
+                    </li>
+                    {% endfor %}
+                    <div class="clear"></div>
+                </ul>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="part-all gray-li">
+    <div class="customer  am-container-1">
+        <div class="part-title">
+            <a >
+                <i class="am-icon-users part-title-i"></i>
+                <span class="part-title-span">客户案例</span>
+                <p>Customer Case</p>
+            </a>
+        </div>
+        <div class="am-slider am-slider-default am-slider-carousel part-all"
+             data-am-flexslider="{itemWidth:150, itemMargin: 5, slideshow: false}"
+             style="  background-color: #f0eeed; box-shadow:none;">
+            <ul class="am-slides">
+                {% for example in example_list %}
+                <li>
+                    <a href="examples/{{example.exampleCate_id}}{{example.id}}"><img src="{{MEDIA_URL}}{{example.logo}}"/></a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

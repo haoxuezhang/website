@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}<title>解决方案详情</title>{% endblock %}
+{% block content %}
+<div class="toppic">
+	<div class="am-container-1">
+	 <div class="toppic-title left">
+			<i class="am-icon-lightbulb-o toppic-title-i"></i>
+			<span class="toppic-title-span">方案详情</span>
+			<p>Information</p>
+		</div>
+		<div class="right toppic-progress">
+			<span><a href="/solutions/{{article.solutionCate_id}}" class="w-white">解决方案</a></span>
+			<i class=" am-icon-arrow-circle-right w-white"></i>
+			<span><a href="" class="w-white">方案详情</a></span>
+		</div>
+	</div>
+</div>
+
+<div class="am-container-1">
+	<div class="words-title margin-t30">
+		<i class="am-icon-file-text file-text"></i><span>{{article.title}}</span>
+	</div>
+</div>
+		
+<div class="solution-inform">
+	<div class=" solution-inform-content-all">
+		<div class="solution-inform-content">
+		    <p class="inform-content-p">{{article.context | safe}}</p>
+  
+		</div>
+	</div>
+</div>
+  
+
+{% endblock %}

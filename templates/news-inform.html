@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}<title>新闻详情</title>{% endblock %}
+{% block content %}
+
+<div class="toppic">
+    <div class="am-container-1">
+        <div class="toppic-title left">
+            <i class="am-icon-newspaper-o toppic-title-i"></i>
+            <span class="toppic-title-span">新闻详情</span>
+            <p>News Information</p>
+        </div>
+        <div class="right toppic-progress">
+            <span><a href="/news/{{article.newsCate_id}}" class="w-white">新闻动态</a></span>
+            <i class=" am-icon-arrow-circle-right w-white"></i>
+            <span><a href="" class="w-white">新闻详情</a></span>
+        </div>
+    </div>
+</div>
+
+<div class="am-container-1 margin-t30">
+    <div class="words-title ">
+        <span>{{article.title}}</span>
+        <div>{{article.pub_date}}</div>
+    </div>
+</div>
+
+<div class="solution-inform">
+    <div class=" solution-inform-content-all">
+        <div class="solution-inform-content">
+            <p class="inform-content-p">{{article.context | safe}}</p>
+
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

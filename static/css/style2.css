@@ -1,0 +1,42 @@
+#nav ul li { 
+float: left 
+position: relative; 
+} 
+
+#nav ul li ul { 
+display: none 
+} 
+
+#nav ul li:hover ul { 
+display: block; 
+position: absolute; 
+} 
+
+#nav ul li:hover ul li a { 
+display:block; 
+background:#12aeef; 
+color:#ffffff; 
+width: 110px; 
+text-align: center; 
+border-bottom: 0px solid #f2f2f2; 
+border-right: none; 
+} 
+#nav ul li:hover ul li a:hover { 
+background:#6dc7ec; 
+color:#fff; 
+}
+
+
+ul.submenu {
+     top center no-repeat ; padding: 6px 0 10px; left: 0; top: 58px; width: 110px;  display: none; position: absolute; z-index: 9999999999999 !important;_top: 94px; _background: none;
+}
+ul .submenu li {
+    background: #01622f; width: 110px; height: 34px; text-align: center; line-height: 34px; padding-top: 0; padding-bottom: 0; font-size: 14px;
+}
+ul .submenu li a {
+    background: none; padding: 0; width: 110px;  height: 34px; text-align: center; color:#ffffff; line-height: 34px; font-family: "Microsoft YaHei";font-size: 14px;
+}
+
+
+
+
